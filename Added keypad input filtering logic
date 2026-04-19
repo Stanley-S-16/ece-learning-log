@@ -1,0 +1,33 @@
+# matrix_keypad_simulator.py
+
+print("Matrix Keypad Calculator Simulator")
+print("Allowed keys: 0–9, +, -, *, /, ., =")
+print("Press '=' to calculate result. Press 'q' to quit.\n")
+
+expression = ""
+
+allowed_keys = "0123456789+-*/.="
+
+while True:
+    key = input("Press key: ")
+
+    if key == 'q':
+        print("Exiting calculator.")
+        break
+
+    elif key not in allowed_keys:
+        print("Invalid key! Use keypad characters only.")
+        continue
+
+    elif key == '=':
+        try:
+            result = eval(expression)
+            print("Result =", result)
+            expression = str(result)
+        except:
+            print("Invalid expression")
+            expression = ""
+
+    else:
+        expression += key
+        print("Current expression:", expression)
